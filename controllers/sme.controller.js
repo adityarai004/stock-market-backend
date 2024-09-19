@@ -78,7 +78,6 @@ const createSME = async (req, res) => {
       retailPartition,
       isLive,
       isListed,
-
       nseCode,
       bseCode,
       news,
@@ -123,10 +122,10 @@ const createSME = async (req, res) => {
 
 const getAllSME = async (req, res) => {
   try {
-    const { page = 1, perPage = 10 } = req.body;
+    const { page = 1, perPage = 10, listed = false } = req.query;
 
     const totalResults = await SME.countDocuments();
-    await SME.find()
+    await SME.find({isListed: listed})
       .select({
         name: 1,
         _id: 1,
@@ -141,8 +140,8 @@ const getAllSME = async (req, res) => {
         nseCode: 1,
         bseCode: 1,
       })
-      .limit(perPage)
-      .skip(perPage * (page - 1))
+      // .limit(perPage)
+      // .skip(perPage * (page - 1))
       .then((data) => {
         res.status(200).send({
           success: true,

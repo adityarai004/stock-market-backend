@@ -122,10 +122,10 @@ const createIpo = async (req, res) => {
 
 const getAllIpo = async (req, res) => {
   try {
-    const { page = 1, perPage = 10 } = req.body;
-
+    const { page = 1, perPage = 10, listed = false } = req.query;
+    console.log("page ", page, "perPage ", perPage, "live ", listed);
     const totalResults = await IPO.countDocuments();
-    await IPO.find()
+    await IPO.find({ isListed: listed })
       .select({
         name: 1,
         _id: 1,
@@ -143,8 +143,8 @@ const getAllIpo = async (req, res) => {
         listingPrice: 1,
         offerPrice: 1,        
       })
-      .limit(perPage)
-      .skip(perPage * (page - 1))
+      // .limit(perPage)
+      // .skip(perPage * (page - 1))
       .then((data) => {
         res.status(200).send({
           success: true,

@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
+mongoose.set('debug', true);
 
 // IPO Schema
 const ipoSchema = new Schema(

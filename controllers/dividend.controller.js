@@ -64,13 +64,13 @@ const getAllDividends = async (req, res) => {
     const totalResults = await Dividend.countDocuments();
 
     await Dividend.find()
-      .limit(perPage)
+      // .limit(perPage)
       .select({
         _id: 1,
         companyName: 1,
         dividentType: 1,
       })
-      .skip(perPage * (page - 1))
+      // .skip(perPage * (page - 1))
       .then((data) => {
         res.status(200).send({
           success: true,
