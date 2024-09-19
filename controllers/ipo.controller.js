@@ -1,4 +1,4 @@
-import { IPO } from "../models/ipo.js";
+import { IPO } from "../models/ipo.model.js";
 
 const createIpo = async (req, res) => {
   try {
@@ -94,6 +94,11 @@ const getAllIpo = async (req, res) => {
         isListed: 1,
         isLive: 1,
         issuePrice: 1,
+        listedOn: 1,
+        expectedPrem: 1,
+        subscriptions: 1,
+        nseCode: 1,
+        bseCode: 1
       })
       .limit(perPage)
       .skip(perPage * (page - 1))

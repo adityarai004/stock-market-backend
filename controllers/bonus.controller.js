@@ -1,4 +1,4 @@
-import { Bonus } from "../models/bonus.js";
+import { Bonus } from "../models/bonus.model.js";
 
 const createBonus = async (req, res) => {
   try {

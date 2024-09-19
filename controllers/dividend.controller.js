@@ -1,4 +1,4 @@
-import { Dividend } from "../models/dividend.js";
+import { Dividend } from "../models/dividend.model.js";
 
 const createDividend = async (req, res) => {
   try {

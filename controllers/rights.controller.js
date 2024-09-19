@@ -1,4 +1,4 @@
-import { Rights } from "../models/rights.js";
+import { Rights } from "../models/rights.model.js";
 
 const createRights = async (req, res) => {
   try {

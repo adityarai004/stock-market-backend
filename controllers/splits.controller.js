@@ -1,4 +1,4 @@
-import { Splits } from "../models/splits.js";
+import { Splits } from "../models/splits.model.js";
 
 const createSplit = async (req, res) => {
   try {
