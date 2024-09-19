@@ -21,6 +21,26 @@ const createIpo = async (req, res) => {
       retailPartition,
       isLive,
       isListed,
+      nseCode,
+      bseCode,
+      news,
+      retailLotShares,
+      retailLotAmount,
+      shniLotShares,
+      shniLotAmount,
+      bhniLotShares,
+      bhniLotAmount,
+      retailPortion,
+      retailApplication,
+      shniApplication,
+      bhniApplication,
+      listingPrice,
+      parentCompany,
+      parentCompanyCode,
+      lotShares,
+      lotAmount,
+      qib,
+      listedOn,
     } = req.body;
 
     if (
@@ -58,6 +78,26 @@ const createIpo = async (req, res) => {
       retailPartition,
       isLive,
       isListed,
+      nseCode,
+      bseCode,
+      news,
+      retailLotShares,
+      retailLotAmount,
+      shniLotShares,
+      shniLotAmount,
+      bhniLotShares,
+      bhniLotAmount,
+      retailPortion,
+      retailApplication,
+      shniApplication,
+      bhniApplication,
+      listingPrice,
+      parentCompany,
+      parentCompanyCode,
+      lotShares,
+      lotAmount,
+      qib,
+      listedOn,
     });
 
     await newIPO
@@ -98,7 +138,10 @@ const getAllIpo = async (req, res) => {
         expectedPrem: 1,
         subscriptions: 1,
         nseCode: 1,
-        bseCode: 1
+        bseCode: 1,
+        news: 1,
+        listingPrice: 1,
+        offerPrice: 1,        
       })
       .limit(perPage)
       .skip(perPage * (page - 1))
@@ -167,7 +210,7 @@ const updateIpo = async (req, res) => {
 
 const deleteIpo = async (req, res) => {
   const { id } = req.params;
-
+  console.log("Delete ID ", id);
   try {
     const deleteCount = await IPO.deleteOne({ _id: id });
     if (deleteCount === 1) {

@@ -21,6 +21,26 @@ const createSME = async (req, res) => {
       retailPartition,
       isLive,
       isListed,
+      nseCode,
+      bseCode,
+      news,
+      retailLotShares,
+      retailLotAmount,
+      shniLotShares,
+      shniLotAmount,
+      bhniLotShares,
+      bhniLotAmount,
+      retailPortion,
+      retailApplication,
+      shniApplication,
+      bhniApplication,
+      listingPrice,
+      parentCompany,
+      parentCompanyCode,
+      lotShares,
+      lotAmount,
+      qib,
+      listedOn,
     } = req.body;
 
     if (
@@ -58,6 +78,27 @@ const createSME = async (req, res) => {
       retailPartition,
       isLive,
       isListed,
+
+      nseCode,
+      bseCode,
+      news,
+      retailLotShares,
+      retailLotAmount,
+      shniLotShares,
+      shniLotAmount,
+      bhniLotShares,
+      bhniLotAmount,
+      retailPortion,
+      retailApplication,
+      shniApplication,
+      bhniApplication,
+      listingPrice,
+      parentCompany,
+      parentCompanyCode,
+      lotShares,
+      lotAmount,
+      qib,
+      listedOn,
     });
 
     await newSME
@@ -98,7 +139,7 @@ const getAllSME = async (req, res) => {
         expectedPrem: 1,
         subscriptions: 1,
         nseCode: 1,
-        bseCode: 1
+        bseCode: 1,
       })
       .limit(perPage)
       .skip(perPage * (page - 1))
