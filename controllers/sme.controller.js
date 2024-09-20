@@ -169,15 +169,15 @@ const getSMEById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const SME = await SME.findById(id);
+    const sme = await SME.findById(id);
 
-    if (!SME) {
+    if (!sme) {
       return res.status(404).json({ success: false, message: "SME Not Found" });
     }
     res.status(200).send({
       success: true,
       message: "Fetched Successfully",
-      data: SME,
+      data: sme,
     });
   } catch (error) {
     res.status(500).json({ error: "Server Error", details: error.message });
