@@ -139,6 +139,9 @@ const getAllSME = async (req, res) => {
         subscriptions: 1,
         nseCode: 1,
         bseCode: 1,
+        news: 1,
+        listingPrice: 1,
+        offerPrice: 1,   
       })
       // .limit(perPage)
       // .skip(perPage * (page - 1))
