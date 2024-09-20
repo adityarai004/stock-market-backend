@@ -5,9 +5,9 @@ const dividendSchema = new Schema(
   {
     companyName: { type: String, required: true, trim: true },
     dividentType: { type: String, required: true },
-    announcementDate: { type: Date, required: true },
-    recordDate: { type: Date, required: true },
-    exDividend: { type: Date },
+    announcementDate: { type: String, required: true },
+    recordDate: { type: String, required: true },
+    exDividend: { type: String },
     previousClose: { type: Number, required: true },
     dividenPrice: { type: Number, required: true },
   },

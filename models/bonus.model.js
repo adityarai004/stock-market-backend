@@ -5,9 +5,9 @@ const bonusSchema = new Schema(
   {
     companyName: { type: String, required: true, trim: true },
     bonusRatio: { type: String, required: true },
-    announcementDate: { type: Date, required: true },
-    recordDate: { type: Date, required: true },
-    exBonus: { type: Date },
+    announcementDate: { type: String, required: true },
+    recordDate: { type: String, required: true },
+    exBonus: { type: String },
   },
   { timestamps: true }
 );

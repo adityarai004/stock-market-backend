@@ -49,10 +49,7 @@ const getAllBonuses = async (req, res) => {
 
     await Bonus.find()
       // .limit(perPage)
-      .select({
-        _id: 1,
-        companyName: 1,
-      })
+      .select()
       // .skip(perPage * (page - 1))
       .then((data) => {
         res.status(200).send({

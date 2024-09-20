@@ -7,9 +7,9 @@ const rightsSchema = new Schema(
     rightRatio: { type: String, required: true },
     faceValue: { type: Number, required: true },
     premium: { type: Number },
-    announcementDate: { type: Date, required: true },
-    recordDate: { type: Date, required: true },
-    exRights: { type: Date },
+    announcementDate: { type: String, required: true },
+    recordDate: { type: String, required: true },
+    exRights: { type: String },
   },
   { timestamps: true }
 );

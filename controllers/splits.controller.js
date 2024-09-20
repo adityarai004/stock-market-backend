@@ -46,12 +46,7 @@ const getAllSplits = async (req, res) => {
     const totalResults = await Splits.countDocuments();
 
     await Splits.find()
-      .select({
-        _id: 1,
-        companyName: 1,
-        oldFv: 1,
-        newFv: 1,
-      })
+      .select()
       // .limit(perPage)
       // .skip(perPage * (page - 1))
       .then((data) => {

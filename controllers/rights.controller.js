@@ -64,10 +64,7 @@ const getAllRights = async (req, res) => {
 
     await Rights.find()
       // .limit(perPage)
-      .select({
-        _id: 1,
-        name: 1
-      })
+      .select()
       // .skip(perPage * (page - 1))
       .then((data) => {
         res.status(200).send({
