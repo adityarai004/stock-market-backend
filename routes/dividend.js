@@ -6,8 +6,8 @@ const dividendRouter = express.Router();
 dividendRouter
     .post("/dividend", createDividend)
     .get("/dividend", getAllDividends)
-    .get("/dividend/:id",updateDividend)
-    .put("/dividend/:id", deleteDividend)
+    .get("/dividend/:id",getOneDividend)
+    .put("/dividend/:id", updateDividend)
     .delete("/dividend/:id",getOneDividend);
 
 export { dividendRouter };
