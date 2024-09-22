@@ -8,6 +8,8 @@ dividendRouter
     .get("/dividend", getAllDividends)
     .get("/dividend/:id",getOneDividend)
     .put("/dividend/:id", updateDividend)
-    .delete("/dividend/:id",getOneDividend);
+    .delete("/dividend/:id",deleteDividend)
+
+    );
 
 export { dividendRouter };
