@@ -34,7 +34,7 @@ const createSME = async (req, res) => {
       parentCompany,
       parentCompanyCode,
       listedOn,
-      estRetailProfile,
+      estRetailProfit,
       estHniProfit,
       premiumOrDiscount,
       refundDate
@@ -88,7 +88,7 @@ const createSME = async (req, res) => {
       parentCompany,
       parentCompanyCode,
       listedOn,
-      estRetailProfile,
+      estRetailProfit,
       estHniProfit,
       premiumOrDiscount,
       refundDate
