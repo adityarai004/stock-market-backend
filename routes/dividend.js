@@ -10,6 +10,6 @@ dividendRouter
     .put("/dividend/:id", updateDividend)
     .delete("/dividend/:id",deleteDividend)
 
-    );
+;
 
 export { dividendRouter };
