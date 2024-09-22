@@ -30,17 +30,15 @@ const createIpo = async (req, res) => {
       shniLotAmount,
       bhniLotShares,
       bhniLotAmount,
-      retailPortion,
       retailApplication,
-      shniApplication,
-      bhniApplication,
       listingPrice,
       parentCompany,
       parentCompanyCode,
-      lotShares,
-      lotAmount,
-      qib,
       listedOn,
+      estRetailProfile,
+      estHniProfit,
+      premiumOrDiscount,
+      refundDate
     } = req.body;
 
     if (
@@ -87,17 +85,15 @@ const createIpo = async (req, res) => {
       shniLotAmount,
       bhniLotShares,
       bhniLotAmount,
-      retailPortion,
       retailApplication,
-      shniApplication,
-      bhniApplication,
       listingPrice,
       parentCompany,
       parentCompanyCode,
-      lotShares,
-      lotAmount,
-      qib,
       listedOn,
+      estRetailProfile,
+      estHniProfit,
+      premiumOrDiscount,
+      refundDate
     });
 
     await newIPO
@@ -131,17 +127,17 @@ const getAllIpo = async (req, res) => {
         _id: 1,
         lotSize: 1,
         offerDate: 1,
-        isListed: 1,
         isLive: 1,
-        issuePrice: 1,
-        listedOn: 1,
         expectedPrem: 1,
         subscriptions: 1,
         nseCode: 1,
         bseCode: 1,
         news: 1,
         listingPrice: 1,
-        offerPrice: 1,        
+        offerPrice: 1,   
+        listingDate: 1,
+        premiumOrDiscount: 1,
+        refundDate: 1     
       })
       // .limit(perPage)
       // .skip(perPage * (page - 1))
@@ -172,7 +168,6 @@ const getOne = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const totalResults = await IPO.countDocuments();
     const ipo = await IPO.findById(id);
 
     if (!ipo) {

@@ -30,17 +30,14 @@ const createSME = async (req, res) => {
       shniLotAmount,
       bhniLotShares,
       bhniLotAmount,
-      retailPortion,
-      retailApplication,
-      shniApplication,
-      bhniApplication,
       listingPrice,
       parentCompany,
       parentCompanyCode,
-      lotShares,
-      lotAmount,
-      qib,
       listedOn,
+      estRetailProfile,
+      estHniProfit,
+      premiumOrDiscount,
+      refundDate
     } = req.body;
 
     if (
@@ -87,17 +84,14 @@ const createSME = async (req, res) => {
       shniLotAmount,
       bhniLotShares,
       bhniLotAmount,
-      retailPortion,
-      retailApplication,
-      shniApplication,
-      bhniApplication,
       listingPrice,
       parentCompany,
       parentCompanyCode,
-      lotShares,
-      lotAmount,
-      qib,
       listedOn,
+      estRetailProfile,
+      estHniProfit,
+      premiumOrDiscount,
+      refundDate
     });
 
     await newSME
@@ -133,7 +127,6 @@ const getAllSME = async (req, res) => {
         offerDate: 1,
         isListed: 1,
         isLive: 1,
-        issuePrice: 1,
         listedOn: 1,
         expectedPrem: 1,
         subscriptions: 1,
@@ -141,7 +134,9 @@ const getAllSME = async (req, res) => {
         bseCode: 1,
         news: 1,
         listingPrice: 1,
-        offerPrice: 1,   
+        offerPrice: 1,  
+        premiumOrDiscount: 1,
+        refundDate: 1
       })
       // .limit(perPage)
       // .skip(perPage * (page - 1))
