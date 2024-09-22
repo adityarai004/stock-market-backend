@@ -38,7 +38,8 @@ const createIpo = async (req, res) => {
       estRetailProfit,
       estHniProfit,
       premiumOrDiscount,
-      refundDate
+      refundDate,
+      listingPercent
     } = req.body;
 
     if (
@@ -93,7 +94,8 @@ const createIpo = async (req, res) => {
       estRetailProfit,
       estHniProfit,
       premiumOrDiscount,
-      refundDate
+      refundDate,
+      listingPercent
     });
 
     await newIPO
@@ -137,7 +139,8 @@ const getAllIpo = async (req, res) => {
         offerPrice: 1,   
         listingDate: 1,
         premiumOrDiscount: 1,
-        refundDate: 1     
+        refundDate: 1,
+        listingPercent: 1
       })
       // .limit(perPage)
       // .skip(perPage * (page - 1))

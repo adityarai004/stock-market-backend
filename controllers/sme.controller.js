@@ -37,7 +37,8 @@ const createSME = async (req, res) => {
       estRetailProfit,
       estHniProfit,
       premiumOrDiscount,
-      refundDate
+      refundDate,
+      listingPercent
     } = req.body;
 
     if (
@@ -91,7 +92,8 @@ const createSME = async (req, res) => {
       estRetailProfit,
       estHniProfit,
       premiumOrDiscount,
-      refundDate
+      refundDate,
+      listingPercent
     });
 
     await newSME
@@ -136,7 +138,8 @@ const getAllSME = async (req, res) => {
         listingPrice: 1,
         offerPrice: 1,  
         premiumOrDiscount: 1,
-        refundDate: 1
+        refundDate: 1,
+        listingPercent: 1
       })
       // .limit(perPage)
       // .skip(perPage * (page - 1))
