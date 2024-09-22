@@ -39,6 +39,7 @@ const ipoSchema = new Schema(
     estHniProfit: {type: Number, required: false},
     premiumOrDiscount: {type: String, required: false},
     refundDate: {type: String, required: false},
+    listingPercent: {type: String, required: false}
   },
   { timestamps: true }
 );
