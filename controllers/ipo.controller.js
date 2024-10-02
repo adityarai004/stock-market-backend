@@ -30,18 +30,49 @@ const createIpo = async (req, res) => {
       shniLotAmount,
       bhniLotShares,
       bhniLotAmount,
-      retailApplication,
       listingPrice,
       parentCompany,
       parentCompanyCode,
-      listedOn,
       estRetailProfit,
       estHniProfit,
       premiumOrDiscount,
       refundDate,
-      listingPercent
+      listingPercent,
+  
+      // Newly added fields
+      detailQibTimes,
+      detailQibAmount,
+      detailHniTimes,
+      detailHniAmount,
+      detailHniAbove10Times,
+      detailHniAbove10Amount,
+      detailHniBelow10Times,
+      detailHniBelow10Amount,
+      detailRetailTimes,
+      detailRetailAmount,
+      detailTotalTimes,
+      detailTotalAmount,
+  
+      // Newly requested fields
+      bidQibOffered,
+      bidQibApplied,
+      bidQibTimes,
+      bidHniOffered,
+      bidHniApplied,
+      bidHniTimes,
+      bidRetailOffered,
+      bidRetailApplied,
+      bidRetailTimes,
+      bidTotalOffered,
+      bidTotalApplied,
+      bidTotalTimes,
+  
+      totalRetailApplication,
+      chanceToGet,
+      chanceToGetTotal
     } = req.body;
-
+  
+    // Check for required fields
     if (
       !name ||
       !offerDate ||
@@ -57,8 +88,9 @@ const createIpo = async (req, res) => {
         .status(400)
         .json({ success: false, message: "Missing required fields" });
     }
-
-    const newIPO = new IPO({
+  
+    // Create new SME object with all fields
+    const newSME = new SME({
       name,
       offerDate,
       offerPrice,
@@ -86,16 +118,46 @@ const createIpo = async (req, res) => {
       shniLotAmount,
       bhniLotShares,
       bhniLotAmount,
-      retailApplication,
       listingPrice,
       parentCompany,
       parentCompanyCode,
-      listedOn,
       estRetailProfit,
       estHniProfit,
       premiumOrDiscount,
       refundDate,
-      listingPercent
+      listingPercent,
+  
+      // Newly added fields
+      detailQibTimes,
+      detailQibAmount,
+      detailHniTimes,
+      detailHniAmount,
+      detailHniAbove10Times,
+      detailHniAbove10Amount,
+      detailHniBelow10Times,
+      detailHniBelow10Amount,
+      detailRetailTimes,
+      detailRetailAmount,
+      detailTotalTimes,
+      detailTotalAmount,
+  
+      // Newly requested fields
+      bidQibOffered,
+      bidQibApplied,
+      bidQibTimes,
+      bidHniOffered,
+      bidHniApplied,
+      bidHniTimes,
+      bidRetailOffered,
+      bidRetailApplied,
+      bidRetailTimes,
+      bidTotalOffered,
+      bidTotalApplied,
+      bidTotalTimes,
+  
+      totalRetailApplication,
+      chanceToGet,
+      chanceToGetTotal
     });
 
     await newIPO
@@ -171,7 +233,10 @@ const getOne = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const ipo = await IPO.findById(id);
+    const ipo = await IPO.findById(id).select({
+      isListed: 0,
+      listingPrice: 0
+    });
 
     if (!ipo) {
       return res.status(404).json({ success: false, message: "IPO Not Found" });

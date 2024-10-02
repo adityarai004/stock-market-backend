@@ -33,14 +33,46 @@ const createSME = async (req, res) => {
       listingPrice,
       parentCompany,
       parentCompanyCode,
-      listedOn,
       estRetailProfit,
       estHniProfit,
       premiumOrDiscount,
       refundDate,
-      listingPercent
+      listingPercent,
+  
+      // Newly added fields
+      detailQibTimes,
+      detailQibAmount,
+      detailHniTimes,
+      detailHniAmount,
+      detailHniAbove10Times,
+      detailHniAbove10Amount,
+      detailHniBelow10Times,
+      detailHniBelow10Amount,
+      detailRetailTimes,
+      detailRetailAmount,
+      detailTotalTimes,
+      detailTotalAmount,
+  
+      // Newly requested fields
+      bidQibOffered,
+      bidQibApplied,
+      bidQibTimes,
+      bidHniOffered,
+      bidHniApplied,
+      bidHniTimes,
+      bidRetailOffered,
+      bidRetailApplied,
+      bidRetailTimes,
+      bidTotalOffered,
+      bidTotalApplied,
+      bidTotalTimes,
+  
+      totalRetailApplication,
+      chanceToGet,
+      chanceToGetTotal
     } = req.body;
-
+  
+    // Check for required fields
     if (
       !name ||
       !offerDate ||
@@ -56,7 +88,8 @@ const createSME = async (req, res) => {
         .status(400)
         .json({ success: false, message: "Missing required fields" });
     }
-
+  
+    // Create new SME object with all fields
     const newSME = new SME({
       name,
       offerDate,
@@ -88,12 +121,43 @@ const createSME = async (req, res) => {
       listingPrice,
       parentCompany,
       parentCompanyCode,
-      listedOn,
       estRetailProfit,
       estHniProfit,
       premiumOrDiscount,
       refundDate,
-      listingPercent
+      listingPercent,
+  
+      // Newly added fields
+      detailQibTimes,
+      detailQibAmount,
+      detailHniTimes,
+      detailHniAmount,
+      detailHniAbove10Times,
+      detailHniAbove10Amount,
+      detailHniBelow10Times,
+      detailHniBelow10Amount,
+      detailRetailTimes,
+      detailRetailAmount,
+      detailTotalTimes,
+      detailTotalAmount,
+  
+      // Newly requested fields
+      bidQibOffered,
+      bidQibApplied,
+      bidQibTimes,
+      bidHniOffered,
+      bidHniApplied,
+      bidHniTimes,
+      bidRetailOffered,
+      bidRetailApplied,
+      bidRetailTimes,
+      bidTotalOffered,
+      bidTotalApplied,
+      bidTotalTimes,
+  
+      totalRetailApplication,
+      chanceToGet,
+      chanceToGetTotal
     });
 
     await newSME
@@ -129,7 +193,6 @@ const getAllSME = async (req, res) => {
         offerDate: 1,
         isListed: 1,
         isLive: 1,
-        listedOn: 1,
         expectedPrem: 1,
         subscriptions: 1,
         nseCode: 1,
@@ -170,7 +233,10 @@ const getSMEById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const sme = await SME.findById(id);
+    const sme = await SME.findById(id).select({
+      isListed: 0,
+      listingPrice: 0
+    });
 
     if (!sme) {
       return res.status(404).json({ success: false, message: "SME Not Found" });
