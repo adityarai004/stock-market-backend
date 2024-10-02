@@ -38,6 +38,7 @@ const createSME = async (req, res) => {
       premiumOrDiscount,
       refundDate,
       listingPercent,
+      imageUrl,
   
       // Newly added fields
       detailQibTimes,
@@ -69,7 +70,8 @@ const createSME = async (req, res) => {
   
       totalRetailApplication,
       chanceToGet,
-      chanceToGetTotal
+      chanceToGetTotal,
+      minimumAmt
     } = req.body;
   
     // Check for required fields
@@ -82,7 +84,8 @@ const createSME = async (req, res) => {
       !closeDate ||
       !faceValue ||
       !issuePrice ||
-      !listingAt
+      !listingAt || 
+      !imageUrl
     ) {
       return res
         .status(400)
@@ -126,6 +129,7 @@ const createSME = async (req, res) => {
       premiumOrDiscount,
       refundDate,
       listingPercent,
+      imageUrl,
   
       // Newly added fields
       detailQibTimes,
@@ -157,7 +161,8 @@ const createSME = async (req, res) => {
   
       totalRetailApplication,
       chanceToGet,
-      chanceToGetTotal
+      chanceToGetTotal,
+      mimimumAmt
     });
 
     await newSME

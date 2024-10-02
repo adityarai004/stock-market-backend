@@ -5,6 +5,7 @@ const { Schema } = mongoose;
 const ipoSchema = new Schema(
   {
     name: { type: String, required: true, unique: true, trim: true },
+    imageUrl: {type: String, required: true},
     offerDate: { type: String, required: true },
     offerPrice: { type: String, required: true },
     lotSize: { type: Number, required: true },
@@ -70,6 +71,7 @@ const ipoSchema = new Schema(
     totalRetailApplication: { type: String },
     chanceToGet: { type: String },
     chanceToGetTotal: { type: String },
+    minimumAmt: {type: String}
   },
   { timestamps: true }
 );

@@ -38,6 +38,7 @@ const createIpo = async (req, res) => {
       premiumOrDiscount,
       refundDate,
       listingPercent,
+      imageUrl,
   
       // Newly added fields
       detailQibTimes,
@@ -69,7 +70,8 @@ const createIpo = async (req, res) => {
   
       totalRetailApplication,
       chanceToGet,
-      chanceToGetTotal
+      chanceToGetTotal,
+      minimumAmt
     } = req.body;
   
     // Check for required fields
@@ -126,6 +128,7 @@ const createIpo = async (req, res) => {
       premiumOrDiscount,
       refundDate,
       listingPercent,
+      imageUrl,
   
       // Newly added fields
       detailQibTimes,
@@ -157,7 +160,8 @@ const createIpo = async (req, res) => {
   
       totalRetailApplication,
       chanceToGet,
-      chanceToGetTotal
+      chanceToGetTotal,
+      minimumAmt
     });
 
     await newIPO
