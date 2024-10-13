@@ -4,22 +4,24 @@ const createDividend = async (req, res) => {
   try {
     const {
       companyName,
-      dividentType,
+      dividendType,
       announcementDate,
       recordDate,
       exDividend,
       previousClose,
-      dividenPrice,
+      dividendPrice,
+      imageUrl
     } = req.body;
 
     // Validate required fields
     if (
       !companyName ||
-      !dividentType ||
+      !dividendType ||
       !announcementDate ||
       !recordDate ||
       !previousClose ||
-      !dividenPrice
+      !dividendPrice ||
+      !imageUrl
     ) {
       return res
         .status(400)
@@ -29,12 +31,13 @@ const createDividend = async (req, res) => {
     // Create new Dividend document
     const newDividend = new Dividend({
       companyName,
-      dividentType,
+      dividendType,
       announcementDate,
       recordDate,
       exDividend,
       previousClose,
-      dividenPrice,
+      dividendPrice,
+      imageUrl
     });
 
     // Save to database

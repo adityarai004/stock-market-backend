@@ -71,7 +71,8 @@ const ipoSchema = new Schema(
     totalRetailApplication: { type: String },
     chanceToGet: { type: String },
     chanceToGetTotal: { type: String },
-    minimumAmt: {type: String}
+    minimumAmt: {type: String},
+    retailPortion: {type: String}
   },
   { timestamps: true }
 );

@@ -7,6 +7,7 @@ const splitsSchema = new Schema(
     oldFv: { type: Number, required: true },
     newFv: { type: Number, required: true },
     splitDate: { type: String, required: true },
+    imageUrl: { type: String, required: true },
   },
   { timestamps: true }
 );

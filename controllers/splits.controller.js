@@ -2,10 +2,10 @@ import { Splits } from "../models/splits.model.js";
 
 const createSplit = async (req, res) => {
   try {
-    const { companyName, oldFv, newFv, splitDate } = req.body;
+    const { companyName, oldFv, newFv, splitDate, imageUrl } = req.body;
 
     // Validate required fields
-    if (!companyName || !oldFv || !newFv || !splitDate) {
+    if (!companyName || !oldFv || !newFv || !splitDate || !imageUrl) {
       return res
         .status(400)
         .json({ success: false, message: "Missing required fields" });
@@ -17,6 +17,7 @@ const createSplit = async (req, res) => {
       oldFv,
       newFv,
       splitDate,
+      imageUrl
     });
 
     // Save to database

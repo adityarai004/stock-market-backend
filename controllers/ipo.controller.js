@@ -14,11 +14,10 @@ const createIpo = async (req, res) => {
       allotmentDate,
       listingDate,
       faceValue,
-      issuePrice,
       issueSize,
       marketLot,
       listingAt,
-      retailPartition,
+      retailPortion,
       isLive,
       isListed,
       nseCode,
@@ -83,7 +82,6 @@ const createIpo = async (req, res) => {
       !openDate ||
       !closeDate ||
       !faceValue ||
-      !issuePrice ||
       !listingAt
     ) {
       return res
@@ -92,7 +90,7 @@ const createIpo = async (req, res) => {
     }
   
     // Create new SME object with all fields
-    const newSME = new SME({
+    const newIPO = new IPO({
       name,
       offerDate,
       offerPrice,
@@ -104,11 +102,10 @@ const createIpo = async (req, res) => {
       allotmentDate,
       listingDate,
       faceValue,
-      issuePrice,
       issueSize,
       marketLot,
       listingAt,
-      retailPartition,
+      retailPortion,
       isLive,
       isListed,
       nseCode,
@@ -206,7 +203,11 @@ const getAllIpo = async (req, res) => {
         listingDate: 1,
         premiumOrDiscount: 1,
         refundDate: 1,
-        listingPercent: 1
+        listingPercent: 1,
+        imageUrl: 1,
+        minimumAmt:1,
+        estRetailProfit: 1,
+        estHniProfit: 1
       })
       // .limit(perPage)
       // .skip(perPage * (page - 1))

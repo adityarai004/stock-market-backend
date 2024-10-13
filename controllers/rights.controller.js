@@ -10,6 +10,7 @@ const createRights = async (req, res) => {
       announcementDate,
       recordDate,
       exRights,
+      imageUrl
     } = req.body;
 
     // Validate required fields
@@ -18,7 +19,8 @@ const createRights = async (req, res) => {
       !rightRatio ||
       !faceValue ||
       !announcementDate ||
-      !recordDate
+      !recordDate || 
+      !imageUrl
     ) {
       return res
         .status(400)
@@ -34,6 +36,7 @@ const createRights = async (req, res) => {
       announcementDate,
       recordDate,
       exRights,
+      imageUrl
     });
 
     // Save to database

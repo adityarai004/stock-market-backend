@@ -2,11 +2,11 @@ import { Bonus } from "../models/bonus.model.js";
 
 const createBonus = async (req, res) => {
   try {
-    const { companyName, bonusRatio, announcementDate, recordDate, exBonus } =
+    const { companyName, bonusRatio, announcementDate, recordDate, exBonus, imageUrl } =
       req.body;
 
     // Validate required fields
-    if (!companyName || !bonusRatio || !announcementDate || !recordDate) {
+    if (!companyName || !bonusRatio || !announcementDate || !recordDate || !imageUrl) {
       return res
         .status(400)
         .json({ success: false, message: "Missing required fields" });
@@ -19,6 +19,7 @@ const createBonus = async (req, res) => {
       announcementDate,
       recordDate,
       exBonus,
+      imageUrl
     });
 
     // Save to database

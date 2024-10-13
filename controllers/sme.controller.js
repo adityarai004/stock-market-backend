@@ -14,11 +14,10 @@ const createSME = async (req, res) => {
       allotmentDate,
       listingDate,
       faceValue,
-      issuePrice,
       issueSize,
       marketLot,
       listingAt,
-      retailPartition,
+      retailPortion,
       isLive,
       isListed,
       nseCode,
@@ -71,7 +70,7 @@ const createSME = async (req, res) => {
       totalRetailApplication,
       chanceToGet,
       chanceToGetTotal,
-      minimumAmt
+      mimimumAmt
     } = req.body;
   
     // Check for required fields
@@ -83,7 +82,6 @@ const createSME = async (req, res) => {
       !openDate ||
       !closeDate ||
       !faceValue ||
-      !issuePrice ||
       !listingAt || 
       !imageUrl
     ) {
@@ -105,11 +103,10 @@ const createSME = async (req, res) => {
       allotmentDate,
       listingDate,
       faceValue,
-      issuePrice,
       issueSize,
       marketLot,
       listingAt,
-      retailPartition,
+      retailPortion,
       isLive,
       isListed,
       nseCode,
@@ -200,14 +197,15 @@ const getAllSME = async (req, res) => {
         isLive: 1,
         expectedPrem: 1,
         subscriptions: 1,
-        nseCode: 1,
-        bseCode: 1,
         news: 1,
         listingPrice: 1,
         offerPrice: 1,  
         premiumOrDiscount: 1,
         refundDate: 1,
-        listingPercent: 1
+        listingPercent: 1,
+        imageUrl: 1,
+        minimumAmt:1,
+        estRetailProfit: 1,
       })
       // .limit(perPage)
       // .skip(perPage * (page - 1))

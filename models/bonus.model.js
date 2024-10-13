@@ -8,6 +8,7 @@ const bonusSchema = new Schema(
     announcementDate: { type: String, required: true },
     recordDate: { type: String, required: true },
     exBonus: { type: String },
+    imageUrl: {type: String, required: true}
   },
   { timestamps: true }
 );
