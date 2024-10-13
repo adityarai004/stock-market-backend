@@ -70,7 +70,7 @@ const createSME = async (req, res) => {
       totalRetailApplication,
       chanceToGet,
       chanceToGetTotal,
-      mimimumAmt
+      minimumAmt
     } = req.body;
   
     // Check for required fields
@@ -159,7 +159,7 @@ const createSME = async (req, res) => {
       totalRetailApplication,
       chanceToGet,
       chanceToGetTotal,
-      mimimumAmt
+      minimumAmt
     });
 
     await newSME
@@ -206,6 +206,7 @@ const getAllSME = async (req, res) => {
         imageUrl: 1,
         minimumAmt:1,
         estRetailProfit: 1,
+        listingDate: 1
       })
       // .limit(perPage)
       // .skip(perPage * (page - 1))
